@@ -1,0 +1,47 @@
+{
+  "LORPG": {
+    "SheetLabels": {
+      "Actor": "lorpg Actor Sheet",
+      "Item": "lorpg Item Sheet"
+    },
+    "Item": {
+      "Spell": {
+        "SpellLVL": "Level {level} Spells",
+        "AddLVL": "Add LVL {level}"
+      }
+    },
+    "Effect": {
+      "Source": "Source",
+      "Toggle": "Toggle Effect",
+      "Temporary": "Temporary Effects",
+      "Passive": "Passive Effects",
+      "Inactive": "Inactive Effects"
+    },
+    "Skill": {
+      "Acrobatics": "Acrobatics",
+      "Athletics": "Athletics",
+      "Biology": "Biology",
+      "Deception": "Deception",
+      "Intimidation": "Intimidation",
+      "Medicine": "Medicine",
+      "Piloting": "Piloting",
+      "Science": "Science",
+      "Society": "Society",
+      "Survival": "Survival",
+      "Technology": "Technology",
+      "Thievery": "Thievery"
+    }
+  },
+
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "npc": "NPC"
+    },
+    "Item": {
+      "item": "Item",
+      "feature": "Feature",
+      "spell": "Spell"
+    }
+  }
+}
