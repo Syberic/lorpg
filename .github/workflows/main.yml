@@ -1,0 +1,34 @@
+name: System Builder
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install jq
+        run: sudo apt-get install jq
+      
+      - name: Update system.json
+        shell: bash
+        run: jq --arg key version --arg value ${{github.ref_name}} '(.[$key]) = $value' system.json > tmp.json && mv tmp.json system.json
+
+      - name: Create Zip File
+        working-directory: ./
+        run: zip -r ./system.zip ./*
+
+      - name: Create Release
+        id: create-release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          name: Release ${{github.ref_name}}
+          draft: false
+          prerelease: false
+          token: ${{secrets.GITHUB_TOKEN}}
+          artifacts: './system.zip, ./system.json'
+          tag: ${{github.ref_name}}
